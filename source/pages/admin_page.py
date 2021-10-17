@@ -139,16 +139,6 @@ def app_nationality():
     driver.find_element_by_id("nationality_name").send_keys("India")
     driver.find_element_by_id("btnSave").click()
 
-# config() #surya code
 
-# admin() #anitha code
-# job_title()
-# pay_grade()
-# employment_status()
-# job_categories()
 
-# app_base() #deepika code
-# app_Organization()
-# app_locations()
-# app_Structure()
-# app_nationality()
+
