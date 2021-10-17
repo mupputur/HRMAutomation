@@ -1,6 +1,67 @@
 from source.pages.base_page import *
 import time
 driver=launch()
+
+def app_base():
+    a=driver.find_element_by_id("menu_admin_viewAdminModule")
+    a.click()
+    a=driver.find_element_by_id("menu_admin_UserManagement")
+    a.click()
+    a=driver.find_element_by_id("menu_admin_viewSystemUsers")
+    a.click()
+
+
+def app_Organization() :
+
+    driver.find_element_by_id("menu_admin_Organization").click()
+    driver.find_element_by_id("menu_admin_viewOrganizationGeneralInformation").click()
+    driver.find_element_by_id("btnSaveGenInfo").click()
+    driver.find_element_by_id("organization_name").send_keys("Durgasoft")
+    driver.find_element_by_id("organization_phone").send_keys("7995389708")
+    #driver.find_element_by_id("organization_email").send_keys("admin@gmail.com")
+    driver.find_element_by_id("organization_street1").send_keys("madhapur")
+    driver.find_element_by_id("organization_city").send_keys("hyd")
+    driver.find_element_by_id("organization_zipCode").send_keys("523273")
+    driver.find_element_by_id("organization_note").send_keys("ntg")
+    driver.find_element_by_id("organization_taxId").send_keys("ID123")
+    driver.find_element_by_id("organization_registraionNumber").send_keys("148b1a0523")
+    driver.find_element_by_id("organization_fax").send_keys("12345")
+    driver.find_element_by_id("organization_street2").send_keys("nijampet")
+    driver.find_element_by_id("organization_province").send_keys("Hyd")
+    drop = Select(driver.find_element_by_id('organization_country'))
+    drop.select_by_visible_text('India')
+    driver.find_element_by_id("organization_province").send_keys("Hyd")
+    time.sleep(3)
+    driver.find_element_by_id("btnSaveGenInfo").click()
+def app_locations():
+    driver.find_element_by_id("menu_admin_Organization").click()
+    driver.find_element_by_xpath('//*[@id="menu_admin_viewLocations"]').click()
+    time.sleep(3)
+    driver.find_element_by_id("searchLocation_name").send_keys("Telangana")
+    driver.find_element_by_id("searchLocation_city").send_keys("hyd")
+    drop = Select(driver.find_element_by_id('searchLocation_country'))
+    drop.select_by_visible_text('India')
+    driver.find_element_by_id("btnSearch").click()
+    driver.find_element_by_id("btnAdd").click()
+    driver.find_element_by_id("location_name").send_keys("Telangana")
+    drop = Select(driver.find_element_by_id('location_country'))
+    drop.select_by_visible_text('India')
+    driver.find_element_by_id("btnSave").click()
+def app_Structure():
+    driver.find_element_by_id("menu_admin_Organization").click()
+    driver.find_element_by_id("menu_admin_viewCompanyStructure").click()
+    time.sleep(3)
+    driver.find_element_by_id("btnEdit").click()
+    driver.find_element_by_id("treeLink_addChild_4").click()
+    driver.find_element_by_id("txtUnit_Id").send_keys("HRM001")
+    driver.find_element_by_id("txtName").send_keys("HRMdevlop")
+    driver.find_element_by_id("btnSave").click()
+def app_nationality():
+    driver.find_element_by_id("menu_admin_nationality").click()
+    driver.find_element_by_id("btnAdd").click()
+    driver.find_element_by_id("nationality_name").send_keys("India")
+    driver.find_element_by_id("btnSave").click()
+
 def config():
     driver.find_element_by_id("menu_admin_viewAdminModule").click()
     time.sleep(2)
