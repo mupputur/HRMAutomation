@@ -1,0 +1,27 @@
+from Source.pages.base_page import *
+driver = launch()
+
+def navigating_leave_page():
+    #actionChains = ActionChains(driver)
+    driver.find_element_by_link_text('Leave').click()
+    driver.find_element_by_link_text('Assign Leave').click()
+    driver.find_element_by_xpath('//input[@id="assignleave_txtEmployee_empName"]').send_keys('Jasmine Morgan')
+    leave_type = Select(driver.find_element_by_xpath('//select[@id="assignleave_txtLeaveType"]'))
+    leave_type.select_by_index(2)
+    driver.find_element_by_xpath('//*[@id="assignleave_txtFromDate"]').click()
+    from_mon = Select(driver.find_element_by_xpath('//*[@id="ui-datepicker-div"]/div/div/select[1]'))
+    from_mon.select_by_index(10)
+    from_year = Select(driver.find_element_by_xpath('//*[@id="ui-datepicker-div"]/div/div/select[2]'))
+    from_year.select_by_visible_text('2021')
+    driver.find_element_by_xpath('//*[@id="ui-datepicker-div"]/table/tbody/tr[2]/td[7]/a').click()
+    driver.find_element_by_xpath('//*[@id="assignleave_txtToDate"]').click()
+    to_mon = Select(driver.find_element_by_xpath('//*[@id="ui-datepicker-div"]/div/div/select[1]'))
+    to_mon.select_by_index(10)
+    to_year = Select(driver.find_element_by_xpath('//*[@id="ui-datepicker-div"]/div/div/select[2]'))
+    to_year.select_by_visible_text('2021')
+    driver.find_element_by_xpath('//*[@id="ui-datepicker-div"]/table/tbody/tr[3]/td[4]/a').click()
+    driver.find_element_by_xpath('//*[@id="assignBtn"]').click()
+    time.sleep(3)
+    driver.find_element_by_xpath('//*[@id="leaveBalance_details_link"]').click()
+
+navigating_leave_page()
