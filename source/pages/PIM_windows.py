@@ -1,36 +1,6 @@
-import os
-from selenium.webdriver.support.ui import Select
-from selenium.webdriver import ActionChains
-import time
-from selenium import webdriver
+from source.pages.base_page import *
+driver=launch()
 
-def initilize_driver():
-    driver_location = "..\\..\\dependecies\\chromedriver.exe"
-    if not os.path.exists(driver_location):
-        raise Exception("Chrome Driver is not present : {}".format(driver_location))
-    return driver_location
-
-def launch():
-    driver_path = initilize_driver()
-    web_url = "https://opensource-demo.orangehrmlive.com/index.php/auth/login"
-    username = 'Admin'
-    Password = "admin123"
-    driver = webdriver.Chrome(executable_path=driver_path)
-    driver.get(web_url)
-    field_User_name = driver.find_element_by_id("txtUsername")
-    field_User_name.send_keys(username)
-    time.sleep(5)
-    field_pwd = driver.find_element_by_id("txtPassword")
-    field_pwd.send_keys(Password)
-    field_login = driver.find_element_by_id("btnLogin")
-    field_login.click()
-    return driver
-    
-def naviagte_pim():
-    pass
-
-def naviagte_admin():
-    pass
 
 def pim_config():
     driver.find_element_by_id('menu_pim_viewPimModule').click()
@@ -53,13 +23,6 @@ def cust_field():
     down.select_by_visible_text('Text or Number')
     driver.find_element_by_id('btnSave').click()
 
-def login_func():
-    driver = webdriver.Chrome("C:\\Users\\sreekan\\Downloads\\chromedriver_win32 (2)\\chromedriver")
-    driver.get("https://opensource-demo.orangehrmlive.com/")
-    driver.find_element_by_id("txtUsername").send_keys("Admin")
-    driver.find_element_by_id("txtPassword").send_keys("admin123")
-    driver.find_element_by_id("btnLogin").click()
-    return driver
 
 def clicking_view_pim():
     driver.find_element_by_id("menu_pim_viewPimModule").click()
@@ -69,16 +32,14 @@ def clicking_view_pim():
     driver.find_element_by_id("reportingMethod_name").send_keys("leave")
     time.sleep(5)
     driver.find_element_by_id("btnSave").click()
-    driver.find_element_by_class_name("checkbox").click()
-    time.sleep(5)
-    driver.find_element_by_id("btnDel").click()
+
 
 def click_termination():
     driver.find_element_by_id("menu_pim_viewPimModule").click()
     driver.find_element_by_id("menu_pim_Configuration").click()
     driver.find_element_by_id("menu_pim_viewTerminationReasons").click()
     driver.find_element_by_id("btnAdd").click()
-    driver.find_element_by_id("terminationReason[name]").send_keys("faver")
+    driver.find_element_by_id("terminationReason_name").send_keys("fever")
     driver.find_element_by_id("btnSave").click()
 
 def pim_hrm():
@@ -104,19 +65,11 @@ def pim_hrm():
     time.sleep(4)
     add = driver.find_element_by_id("btnAdd").click()
 
-def app_launch():
-    driver = webdriver.Chrome(r"C:\\Users\\pushpalatha\\Downloads\\chromedriver_win32\\chromedriver.exe")
-    driver.get('https://opensource-demo.orangehrmlive.com/')
-    driver.find_element_by_id("txtUsername").send_keys('Admin')
-    time.sleep(3)
-    driver.find_element_by_id("txtPassword").send_keys('admin123')
-    time.sleep(2)
-    driver.find_element_by_name("Submit").click()
+
 def navigate_pim():
-    driver = app_launch()
-    driver.find_element_by_class("firstLevelMenu").click()
+    driver.find_element_by_id('menu_pim_viewPimModule').click()
+
 def add_employee():
-    driver=navigate_pim()
     driver.find_element_by_id("menu_pim_addEmployee").click()
     driver.find_element_by_id("firstName").send_keys("pushpa")
     driver.find_element_by_id("middleName").send_keys("latha")
@@ -128,7 +81,7 @@ def add_employee():
     driver.find_element_by_id("user_password").send_keys("Pshpa@4")
     driver.find_element_by_id("re_password").send_keys("Pushpa@4")
     drop = Select(driver.find_element_by_id("status"))
-    drop.Select_by_visible_text("Enabled")
+    drop.select_by_visible_text("Enabled")
     driver.find_element_by_id("btnSave").click()
 
 def navigate_reports():
@@ -168,3 +121,27 @@ def add_report():
     time.sleep(2)
     driver.find_element_by_id("display_group_2").click()
     driver.find_element_by_id("btnSave").click()
+
+#kishore
+navigate_reports()
+
+rep=add_report()
+print(rep)
+
+
+#priya
+#pim_config()
+#cust_field()
+
+
+#sreekanth
+#clicking_view_pim()
+#click_termination()
+
+#pardhu
+#pim_hrm()
+
+
+#latha
+#navigate_pim()
+#add_employee()
