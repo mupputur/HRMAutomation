@@ -6,7 +6,7 @@ driver = None
 def OrangeHrm_perfomance():
     global driver
     driver = webdriver.Chrome("..\\dependencies\\chromedriver.exe")
-    driver.implicitly_wait(2)
+    driver.implicitly_wait(5)
     driver.get("https://opensource-demo.orangehrmlive.com/")
 def log_in_page():
     act=ActionChains(driver)
@@ -14,6 +14,7 @@ def log_in_page():
     driver.find_element_by_id("txtPassword").send_keys('admin123')
     driver.find_element_by_id("btnLogin").click()
     time.sleep(5)
+def Confiugre():
     act.move_to_element(driver.find_element_by_xpath('//*[@id="menu__Performance"]/b')).perform()
     time.sleep(5)
     act.move_to_element(driver.find_element_by_xpath("//*[@id='menu_performance_Configure']")).perform()
@@ -23,9 +24,17 @@ def log_in_page():
     list_of_dorpdown=driver.find_element_by_xpath('//*[@id="kpi360SearchForm_jobTitleCode"]')
     list_of_items=Select(list_of_dorpdown)
     print(list_of_items)
-    #driver.find_element_by_xpath('//*[@id="kpi360SearchForm_jobTitleCode"]')
+    driver.find_element_by_id('kpi360SearchForm_jobTitleCode').click()
+
+    d = driver.find_element_by_xpath('//*[@id="kpi360SearchForm_jobTitleCode"]/option[4]')
+    d.click()
+
+    driver.find_element_by_id("searchBtn").click()
     time.sleep(3)
-    list_of_items.select_by_index(index=5)
+
+    #list_of_items.select_by_index(index=5)
+def Performance_icon():
+
     driver.find_element_by_xpath('//*[@id="menu_performance_ManageReviews"]').click()
     driver.find_element_by_id("menu_performance_searchPerformancReview").click()
 
@@ -73,12 +82,14 @@ def log_in_page():
     # allDates = driver.find_elements_by_xpath("//table[@class='ui-datepicker-calendar']//td")
     # for webElement in allDates:
     #     date = webElement.text
-
+    #
     #     if date == "14":
     #         webElement.click()
     #         break
 OrangeHrm_perfomance()
 log_in_page()
+Confiugre()
+Performance_icon()
 
 
 
