@@ -18,7 +18,6 @@ def app_Organization() :
     driver.find_element_by_id("btnSaveGenInfo").click()
     driver.find_element_by_id("organization_name").send_keys("Durgasoft")
     driver.find_element_by_id("organization_phone").send_keys("7995389708")
-    #driver.find_element_by_id("organization_email").send_keys("admin@gmail.com")
     driver.find_element_by_id("organization_street1").send_keys("madhapur")
     driver.find_element_by_id("organization_city").send_keys("hyd")
     driver.find_element_by_id("organization_zipCode").send_keys("523273")
@@ -33,6 +32,7 @@ def app_Organization() :
     driver.find_element_by_id("organization_province").send_keys("Hyd")
     time.sleep(3)
     driver.find_element_by_id("btnSaveGenInfo").click()
+    
 def app_locations():
     driver.find_element_by_id("menu_admin_Organization").click()
     driver.find_element_by_xpath('//*[@id="menu_admin_viewLocations"]').click()
@@ -147,16 +147,8 @@ def add_employee_details():
     resp.find_element_by_name("systemUser[confirmPassword]").send_keys("Rohit!@@#$$$$")
     resp.find_element_by_id('btnSave').click()
     time.sleep(5)
-"""
-def details_delete():
-    resp.find_element_by_name("_reset").click()
-    resp.find_element_by_name("searchSystemUser[userName]").send_keys("Rohit@12345")
-    resp.find_element_by_name("_search").click()
-    resp.find_element_by_xpath("//*[@id='ohrmList_chkSelectAll']").click()
-    resp.find_element_by_name("btnDelete").click()
-    resp.find_elements_by_id("dialogDeleteBtn")[0].click()
-"""
+
 user_details()
 add_employee_details()
-#details_delete()
+
 
