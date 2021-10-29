@@ -2,7 +2,6 @@ import unittest
 from source.pages.admin_page import *
 
 # Note: Write assertions for each major steps
-
 class TestAdminPage(unittest.TestCase):
 
     def test_surya_code(self):

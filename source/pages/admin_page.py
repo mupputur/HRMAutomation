@@ -40,7 +40,6 @@ def config():
 
 
 def admin():
-
     driver.find_element_by_id('menu_admin_viewAdminModule').click()
     driver.find_element_by_id('menu_admin_Job').click()
 
