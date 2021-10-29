@@ -16,6 +16,7 @@ def launch():
     username = 'Admin'
     Password = "admin123"
     driver = webdriver.Chrome(executable_path=driver_path)
+    driver.fin
     driver.get(web_url)
     field_User_name = driver.find_element_by_id("txtUsername")
     field_User_name.send_keys(username)

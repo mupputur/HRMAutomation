@@ -19,6 +19,7 @@ def identify_element(locator_value, locator_type, element_name):
     try:
         if locator_type == "ID":
             element = driver.find_element_by_id(locator_value)
+
         elif locator_type == "XPATH":
             driver.find_element_by_xpath(locator_value)
         return element
